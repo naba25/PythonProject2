@@ -13,28 +13,6 @@ Regular Expressions
 Threading
 
 
-Project Structure :
-PyChat/
-│
-├── main.py
-├── brain.py
-├── voice.py
-├── search.py
-├── memory.py
-├── knowledge.py
-├── analytics.py
-├── similarity.py
-│
-├── data/
-│   ├── memory.json
-│   ├── knowledge.json
-│   └── analytics.json
-│
-├── requirements.txt
-├── README.md
-└── .gitignore
-
-
 Future Improvements :
  - Real AI Brain Integration (LLMs / Offline AI Models)
  - Advanced Memory System 
