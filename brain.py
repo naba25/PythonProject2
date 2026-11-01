@@ -4,19 +4,16 @@ import re
 
 from search import smart_search, wiki_answer
 
-# ================= JOKES =================
 jokes = [
     "Why do programmers hate nature? Too many bugs.",
     "I told my computer I needed a break, and it said no problem."
 ]
 
-# ================= FACTS =================
 facts = [
     "Python was created in 1991.",
     "The human brain has billions of neurons."
 ]
 
-# ================= MATH =================
 def safe_math(expr):
     if re.fullmatch(r"[0-9\+\-\*/\.\(\) ]+", expr):
         try:
@@ -26,16 +23,15 @@ def safe_math(expr):
     return None
 
 
-# ================= MAIN BRAIN =================
 def get_response(query):
 
     q = query.lower().strip()
 
-    # ================= GREETINGS =================
+    
     if q in ["hi", "hello", "hey"]:
         return "Hello! I am PyChat."
 
-    # ================= BASIC CONVERSATION =================
+    
     elif "how are you" in q:
         return "I am doing well. Thanks for asking."
 
@@ -70,33 +66,33 @@ def get_response(query):
     elif "good night" in q:
         return "Good night. Take care."
 
-    # ================= TIME =================
+    
     elif "time" in q:
         return "Current time: " + datetime.datetime.now().strftime("%H:%M:%S")
 
-    # ================= DATE =================
+    
     elif "date" in q:
         return "Today's date: " + datetime.datetime.now().strftime("%Y-%m-%d")
 
-    # ================= MATH =================
+    
     math_result = safe_math(q)
 
     if math_result:
         return math_result
 
-    # ================= JOKES =================
+    
     elif "joke" in q:
         return random.choice(jokes)
 
-    # ================= FACTS =================
+    
     elif "fact" in q:
         return random.choice(facts)
 
-    # ================= WIKIPEDIA =================
+    
     wiki = wiki_answer(query)
 
     if wiki:
         return "Wikipedia:\n" + wiki
 
-    # ================= WEB SEARCH =================
+    
     return smart_search(query) 
